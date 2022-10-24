@@ -39,8 +39,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 This is an in progress python music bot that will stream music onto a group chatting platform known as discord. 
 This project was written fully in python and by my self that I will be updating as I go.
 
@@ -61,21 +59,34 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is a list things you need to use the bot and how to install them.
+This is a list things you need to make your bot and how to install them.
 
 * [Making a bot, getting its unique token and inviting it to your server.
   Refer to this link (click me) if you know how to make a discord bot](https://discordpy.readthedocs.io/en/stable/discord.html)
-* After you have your bot created go to your developer portal and go to the bot section and enable *SERVER MEMBERS INTENT* and *MESSAGE CONTENT INTENT*.
+* After you have your bot created go to your developer portal and go to the bot tab and under the section Privileged Gateway Intents and enable *SERVER MEMBERS INTENT* and *MESSAGE CONTENT INTENT*.
 * This git repo has a requirements.txt file becasue the bots uses a fair amount of libaries. If your not a beginner you will know what to do with this file.
 * For the beginners I will show you how to manually install all the libaries. 
 * Open up your terminal (cmd) and type in these commands:
  
+  #### Windows
+
   ```sh
   pip install yt_dlp
   pip install validators
   pip install discord
   pip install youtube_search
   pip install PyNaCl
+  pip install ffmpeg
+  ```
+  #### linux
+  
+  ```sh
+  pip install yt_dlp
+  pip install validators
+  pip install discord
+  pip install youtube_search
+  pip install PyNaCl
+  sudo apt install ffmpeg
   ```
 
 ### Installation
@@ -90,7 +101,7 @@ Aware of most of the bugs and I am updating it as often as I can.
    ```sh
    git clone https://github.com/Adib-Nasreddine/Python-Music-Bot
    ```
-3. Put in your unique bot token which will be at the bottom of the code
+3. Put in your unique bot token into the python script which will be at the bottom of the code
 4. Finally just run the code on your pc or laptop
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -149,7 +160,7 @@ The bot has a few commands that are common with any music bot
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Id prefer not accept contributions becasue this is a solo project but I dont mind users sending me unique bugs they have found.
+I'd prefer not accept contributions becasue this is a solo project but I d'ont mind users sending me unique bugs they have found.
 
 If you have a new bug or glitch that you have found feel free to contact me with the bug and why it's happening 
 

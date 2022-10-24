@@ -218,6 +218,9 @@ async def dc(ctx, time):
             await stop(ctx)
             return
         
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ff3c30a1f9fe3e9b7806a39db9b9baa4fc7263f
 client.run("BOT TOKEN GOES HERE!")
 
