@@ -61,19 +61,12 @@ def embed_music(ctx, song, song_state, embed_colour):
     return music_embed
 
 
-swap = False
 # Main play method
 @client.command()
 async def play(ctx, *, song):
     # Add guild into *guilds* if it is not already in there 
     if (ctx.guild.id) not in guilds:
         guilds[ctx.guild.id] = [[], []]
-    global swap
-    # Pop from list if guild queue is not empty
-    if len(guilds[(ctx.guild.id)][0]) != 0 & swap is False:
-        guilds[(ctx.guild.id)][0].pop(0)
-        guilds[(ctx.guild.id)][1].pop(0)
-        swap = True
     # Users song info
     song_information = song_infooooo(song)
     song_url = song_information["url_suffix"]
@@ -111,10 +104,9 @@ async def play(ctx, *, song):
     else:
         await ctx.send("```Must be in a voice channel to use this command```")
                 
+                
 # Method used to play songs when a queue is present 
 def song_seq(ctx):
-    global swap
-    swap = True
     # Pops song that was just played in queue if present 
     if len(guilds[(ctx.guild.id)][0]) != 0:
         guilds[(ctx.guild.id)][0].pop(0)
@@ -133,6 +125,7 @@ def song_seq(ctx):
             client.loop.create_task(dc(ctx, 2))
             pass
 
+
 # Pauses the bot 
 @client.command()
 async def pause(ctx):
@@ -145,6 +138,7 @@ async def pause(ctx):
     else:
         await ctx.send("```No audio is currently playing.```")
 
+
 # Resumes the bot 
 @client.command()
 async def resume(ctx):
@@ -155,6 +149,7 @@ async def resume(ctx):
         await ctx.send("```Audio is already playing.```")
     else:
         await ctx.send("```No audio is currently playing.```")
+   
     
 # Stop the bot and resets the queue 
 @client.command()
@@ -167,6 +162,7 @@ async def stop(ctx):
     else:
         await ctx.send("```Bot is not currently not in a voice channel.```")
 
+
 # Skips the current song thats playing
 @client.command()
 async def skip(ctx):
@@ -176,6 +172,7 @@ async def skip(ctx):
         voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
         voice.stop()
         play(guilds[(ctx.guild.id)][0][0])
+
 
 # Displays the queue 
 @client.command()                                                                                                                      
