@@ -218,6 +218,5 @@ async def dc(ctx, time):
             await stop(ctx)
             return
         
-
-client.run('ODk1NTUwNjM2NTEzNDU2MTQ4.YV6Mhg.kLla92IQKftCFBCKnShmf2Cmey8')
+client.run("BOT TOKEN GOES HERE!")
 
