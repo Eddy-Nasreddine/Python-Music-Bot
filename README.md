@@ -149,7 +149,7 @@ The bot has a few commands that are common with any music bot
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Id prefer not accept contributions becasue this is a solo project but I dont mind users sending me unqie bugs they have found.
+Id prefer not accept contributions becasue this is a solo project but I dont mind users sending me unique bugs they have found.
 
 If you have a new bug or glitch that you have found feel free to contact me with the bug and why it's happening 
 
@@ -162,6 +162,8 @@ If you have a new bug or glitch that you have found feel free to contact me with
 Email - eddynasreddine@hotmail.com
 
 Project Link: [Python Music Bot](https://github.com/Adib-Nasreddine/Python-Music-Bot)
+
+Linkdin: [Adib-Nasreddine](https://www.linkedin.com/in/adib-nasreddine-938466233/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
