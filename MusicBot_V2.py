@@ -16,11 +16,13 @@ ydl_opts = {'format': 'bestaudio/best'}
 ffmpeg_options = {'options': '-vn',
                   'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5'}
 
-# TODO Volume mixing (All sounds have the same respective volume)
-# TODO Error handling 
+# TODO 
+# TODO Volume mixing (All sounds have the same respective volume)Error handling 
 # TODO Youtube Playlists 
 # TODO Spotify & Sounds cloud Integeration 
 # TODO Clean up code 
+# TODO fix youtube links embeds showing the wrong song
+# TODO allow bot to be dragged while playing and continue to play 
 
 # Holds all the guilds and there respective queues, ctx, and song info
 # guilds = {[[song_url, ctx], [song_name]]}
@@ -160,6 +162,8 @@ async def stop(ctx):
         voice.stop()
         await ctx.guild.voice_client.disconnect()
     else:
+        guilds[(ctx.guild.id)] = [[], []]
+        voice.stop()
         await ctx.send("```Bot is not currently not in a voice channel.```")
 
 
@@ -177,7 +181,7 @@ async def skip(ctx):
 # Displays the queue 
 @client.command()                                                                                                                      
 async def queue(ctx):
-    # Creates a string of all the songs on queue to add the embed 
+    # Creates a string of all the songs on queue to add to the embed 
     song = ""
     for i in range(len(guilds[((ctx.guild.id))][0])):
         song_url = guilds[(ctx.guild.id)][0][i][0]
