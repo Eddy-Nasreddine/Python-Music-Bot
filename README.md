@@ -61,21 +61,34 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is a list things you need to use the bot and how to install them.
+This is a list things you need to make your bot and how to install them.
 
 * [Making a bot, getting its unique token and inviting it to your server.
   Refer to this link (click me) if you know how to make a discord bot](https://discordpy.readthedocs.io/en/stable/discord.html)
-* After you have your bot created go to your developer portal and go to the bot section and enable *SERVER MEMBERS INTENT* and *MESSAGE CONTENT INTENT*.
+* After you have your bot created go to your developer portal and go to the bot tab and under the section Privileged Gateway Intents and enable *SERVER MEMBERS INTENT* and *MESSAGE CONTENT INTENT*.
 * This git repo has a requirements.txt file becasue the bots uses a fair amount of libaries. If your not a beginner you will know what to do with this file.
 * For the beginners I will show you how to manually install all the libaries. 
 * Open up your terminal (cmd) and type in these commands:
  
+  #### Windows
+
   ```sh
   pip install yt_dlp
   pip install validators
   pip install discord
   pip install youtube_search
   pip install PyNaCl
+  pip install ffmpeg
+  ```
+  #### lynx
+  
+  ```sh
+  sudo apt install yt_dlp
+  sudo apt install validators
+  sudo apt install discord
+  sudo apt install youtube_search
+  sudo apt install PyNaCl
+  sudo apt install ffmpeg
   ```
 
 ### Installation
@@ -90,7 +103,7 @@ Aware of most of the bugs and I am updating it as often as I can.
    ```sh
    git clone https://github.com/Adib-Nasreddine/Python-Music-Bot
    ```
-3. Put in your unique bot token which will be at the bottom of the code
+3. Put in your unique bot token into the python script which will be at the bottom of the code
 4. Finally just run the code on your pc or laptop
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
