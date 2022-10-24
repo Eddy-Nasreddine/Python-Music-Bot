@@ -41,8 +41,8 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-This is an in progress python music bot that will stream music onto a group chatting platform knonw as discord. 
-This project was written fully in python and by my self and is still a work in progress that I will be updating as I go.
+This is an in progress python music bot that will stream music onto a group chatting platform known as discord. 
+This project was written fully in python and by my self that I will be updating as I go.
 
 Here's why:
 * Personal use
@@ -52,10 +52,6 @@ Here's why:
 * Learning experience 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -67,11 +63,11 @@ To get a local copy up and running follow these simple example steps.
 
 This is a list things you need to use the bot and how to install them.
 
-* Making a bot, getting its unique token and inviting it to your server.
-  [Refer to this link (click me) if you dont have a discord bot yet](https://discordpy.readthedocs.io/en/stable/discord.html)
+* [Making a bot, getting its unique token and inviting it to your server.
+  Refer to this link (click me) if you know how to make a discord bot](https://discordpy.readthedocs.io/en/stable/discord.html)
 * After you have your bot created go to your developer portal and go to the bot section and enable *SERVER MEMBERS INTENT* and *MESSAGE CONTENT INTENT*.
 * This git repo has a requirements.txt file becasue the bots uses a fair amount of libaries. If your not a beginner you will know what to do with this file.
-* For the beginners I will you how to manually install all the libaries. 
+* For the beginners I will show you how to manually install all the libaries. 
 * Open up your terminal (cmd) and type in these commands:
  
   ```sh
@@ -84,9 +80,9 @@ This is a list things you need to use the bot and how to install them.
 
 ### Installation
 
-This is a quick guide on how to setup the bot on your own device. Note that once done these steps
+This is a quick guide on how to get the bot running on your own device. Note that once done these steps
 the bot will only run while your pc or laptop is on unless you are using a server to host it.
-One more thing as mentioed above its still a work in progress and does not work perfectly. I am
+One more thing as mentioned above it's still a work in progress and does not work perfectly. I am
 Aware of most of the bugs and I am updating it as often as I can.
 
 1. Have a bot on discord that is ready to use along with its unique token
@@ -94,11 +90,10 @@ Aware of most of the bugs and I am updating it as often as I can.
    ```sh
    git clone https://github.com/Adib-Nasreddine/Python-Music-Bot
    ```
-3. Put in your unique bot token which will be at the bottem of the code
+3. Put in your unique bot token which will be at the bottom of the code
 4. Finally just run the code on your pc or laptop
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- USAGE EXAMPLES -->
@@ -106,7 +101,7 @@ Aware of most of the bugs and I am updating it as often as I can.
 
 The bot has a few commands that are common with any music bot
 
-1. play: This will play a song and it takes youtube links or just a name of song
+1. play: This will play a song and it takes youtube links or just a name of a song
   ```sh
   $play <song>
   ```
@@ -147,10 +142,8 @@ The bot has a few commands that are common with any music bot
 - [ ] fix youtube links embeds showing the wrong song
 - [ ] allow bot to be dragged while playing and continue to play 
   
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- CONTRIBUTING -->
@@ -163,7 +156,6 @@ If you have a new bug or glitch that you have found feel free to contact me with
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 <!-- CONTACT -->
 ## Contact
 
@@ -172,10 +164,6 @@ Email - eddynasreddine@hotmail.com
 Project Link: [Python Music Bot](https://github.com/Adib-Nasreddine/Python-Music-Bot)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
