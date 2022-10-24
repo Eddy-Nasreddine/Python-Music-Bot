@@ -211,7 +211,7 @@ async def dc(ctx, time):
         counter += 1
         await asyncio.sleep(1)
         if counter == time:
-            await ctx.guild.voice_client.disconnect()
+            await stop(ctx)
             return
         
 
