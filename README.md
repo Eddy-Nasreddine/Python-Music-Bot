@@ -39,8 +39,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 This is an in progress python music bot that will stream music onto a group chatting platform known as discord. 
 This project was written fully in python and by my self that I will be updating as I go.
 
@@ -80,14 +78,14 @@ This is a list things you need to make your bot and how to install them.
   pip install PyNaCl
   pip install ffmpeg
   ```
-  #### lynx
+  #### linux
   
   ```sh
-  sudo apt install yt_dlp
-  sudo apt install validators
-  sudo apt install discord
-  sudo apt install youtube_search
-  sudo apt install PyNaCl
+  pip install yt_dlp
+  pip install validators
+  pip install discord
+  pip install youtube_search
+  pip install PyNaCl
   sudo apt install ffmpeg
   ```
 
@@ -162,7 +160,7 @@ The bot has a few commands that are common with any music bot
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Id prefer not accept contributions becasue this is a solo project but I dont mind users sending me unique bugs they have found.
+I'd prefer not accept contributions becasue this is a solo project but I d'ont mind users sending me unique bugs they have found.
 
 If you have a new bug or glitch that you have found feel free to contact me with the bug and why it's happening 
 
