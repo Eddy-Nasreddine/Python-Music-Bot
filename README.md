@@ -4,7 +4,7 @@
 <br />
 <div align="center">
 
-  <h3 align="center">Python Music Bot</h3>
+  <h3 align="center">Python Music Bot</h6>
 
   <p align="center">
     A music bot for you and your friends :)
