@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h1 align="center">## PYTHON MUSIC BOT</h1>
+  <h1 align="center">PYTHON MUSIC BOT</h1>
   <p align="center">
     A music bot for you and your friends :)
     <br />
