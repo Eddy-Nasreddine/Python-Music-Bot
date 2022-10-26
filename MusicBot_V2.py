@@ -62,9 +62,6 @@ def embed_music(ctx, song, song_state, embed_colour):
     music_embed.set_thumbnail(url= str(song_thumbnail))
     return music_embed
 
-@client.command()
-async def help():
-    pass
 
 # Main play method
 @client.command()
