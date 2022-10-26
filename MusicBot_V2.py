@@ -16,7 +16,7 @@ ydl_opts = {'format': 'bestaudio/best'}
 ffmpeg_options = {'options': '-vn',
                   'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5'}
 
-# TODO 
+
 # TODO Volume mixing (All sounds have the same respective volume)Error handling 
 # TODO Youtube Playlists 
 # TODO Spotify & Sounds cloud Integeration 
@@ -62,6 +62,9 @@ def embed_music(ctx, song, song_state, embed_colour):
     music_embed.set_thumbnail(url= str(song_thumbnail))
     return music_embed
 
+@client.command()
+async def help():
+    pass
 
 # Main play method
 @client.command()
@@ -218,9 +221,6 @@ async def dc(ctx, time):
             await stop(ctx)
             return
         
-<<<<<<< HEAD
-
-=======
->>>>>>> 1ff3c30a1f9fe3e9b7806a39db9b9baa4fc7263f
 client.run("BOT TOKEN GOES HERE!")
+
 
