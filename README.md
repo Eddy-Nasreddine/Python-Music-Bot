@@ -62,7 +62,7 @@ To get a local copy up and running follow these simple example steps.
 This is a list things you need to make your bot and how to install them.
 
 * [Making a bot, getting its unique token and inviting it to your server.
-  Refer to this link (click me) if you know how to make a discord bot](https://discordpy.readthedocs.io/en/stable/discord.html)
+  Refer to this link (click me) if you don't know how to make a discord bot](https://discordpy.readthedocs.io/en/stable/discord.html)
 * After you have your bot created go to your developer portal and go to the bot tab and under the section Privileged Gateway Intents and enable *SERVER MEMBERS INTENT* and *MESSAGE CONTENT INTENT*.
 * This git repo has a requirements.txt file becasue the bots uses a fair amount of libaries. If your not a beginner you will know what to do with this file.
 * For the beginners I will show you how to manually install all the libaries. 
