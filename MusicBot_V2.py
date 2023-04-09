@@ -35,15 +35,18 @@ async def on_ready():
 
 
 # Parses songname and returns info on the first reults found 
-def song_infooooo(songname):  
-    valid = validators.url(songname)
-    results = YoutubeSearch(str(songname), max_results=1).to_dict()
-    if valid:
-        results[0]["url_suffix"] = songname 
-        return results[0]
-    else:
-        results[0]["url_suffix"] = "https://www.youtube.com" + results[0]["url_suffix"]
-        return results[0]
+def song_infooooo(songname):
+    try:  
+        valid = validators.url(songname)
+        results = YoutubeSearch(str(songname), max_results=1).to_dict()
+        if valid:
+            results[0]["url_suffix"] = songname 
+            return results[0]
+        else:
+            results[0]["url_suffix"] = "https://www.youtube.com" + results[0]["url_suffix"]
+            return results[0]
+    except:
+        return {}
     
 
 # Returns an embed that is used for queue's and playing songs 
@@ -71,6 +74,10 @@ async def play(ctx, *, song):
         guilds[ctx.guild.id] = [[], []]
     # Users song info
     song_information = song_infooooo(song)
+    # If the song is not found or something goes wrong method will return
+    if (len(song_information) == 0):
+        await ctx.send("```Something went wrong or song was not found. Try again!```")
+        return
     song_url = song_information["url_suffix"]
     song_name = song_information["title"]
     channel = ctx.message.author.voice.channel
@@ -218,6 +225,6 @@ async def dc(ctx, time):
             await stop(ctx)
             return
         
-client.run("BOT TOKEN GOES HERE!")
+client.run("ODk1NTUwNjM2NTEzNDU2MTQ4.GwCpU5.aeW9z5pPsEaKFDzuc2rUCQAVNXX_gQcA1wj0JE")
 
 
