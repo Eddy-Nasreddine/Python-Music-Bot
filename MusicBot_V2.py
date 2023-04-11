@@ -27,7 +27,7 @@ ffmpeg_options = {'options': '-vn',
 # Holds all the guilds and there respective queues, ctx, and song info
 # guilds = {[[song_url, ctx], [song_name]]}
 guilds = {}
-
+banned_guilds = [897066551260360715]
 
 @client.event
 async def on_ready():
@@ -69,6 +69,9 @@ def embed_music(ctx, song, song_state, embed_colour):
 # Main play method
 @client.command()
 async def play(ctx, *, song):
+    if (ctx.guild.id in banned_guilds):
+        await ctx.send("https://cdn.discordapp.com/attachments/897066551784636419/1095291318625898516/image.png")
+        return
     # Add guild into *guilds* if it is not already in there 
     if (ctx.guild.id) not in guilds:
         guilds[ctx.guild.id] = [[], []]
@@ -225,6 +228,6 @@ async def dc(ctx, time):
             await stop(ctx)
             return
         
-client.run("ODk1NTUwNjM2NTEzNDU2MTQ4.GwCpU5.aeW9z5pPsEaKFDzuc2rUCQAVNXX_gQcA1wj0JE")
+client.run("TOKEN")
 
 
