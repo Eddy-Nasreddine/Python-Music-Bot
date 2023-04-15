@@ -1,10 +1,11 @@
 import asyncio
 import yt_dlp
-import validators
 import discord
 from discord.ext import commands
 from youtube_search import YoutubeSearch 
 from discord.ext import commands
+from urllib.parse import urlparse, parse_qs
+
 
 
 intents = discord.Intents.default()
@@ -27,27 +28,30 @@ ffmpeg_options = {'options': '-vn',
 # Holds all the guilds and there respective queues, ctx, and song info
 # guilds = {[[song_url, ctx], [song_name]]}
 guilds = {}
-banned_guilds = [897066551260360715]
-
-@client.event
-async def on_ready():
-    pass
-
+banned_guilds = []
 
 # Parses songname and returns info on the first reults found 
 def song_infooooo(songname):
-    try:  
-        valid = validators.url(songname)
-        results = YoutubeSearch(str(songname), max_results=1).to_dict()
-        if valid:
-            results[0]["url_suffix"] = songname 
+    try:
+        url_parts = urlparse(songname)
+        query = parse_qs(url_parts.query)
+        video_id = query.get("v", [None])[0]
+        if video_id is None:
+            # The input is not a URL, so treat it as a song name
+            results = YoutubeSearch(songname, max_results=1).to_dict()
+            if len(results) == 0:
+                # No results were found, so return an empty dictionary
+                return {}
+            results[0]["url_suffix"] = f"https://www.youtube.com/watch?v={results[0]['id']}"
             return results[0]
         else:
-            results[0]["url_suffix"] = "https://www.youtube.com" + results[0]["url_suffix"]
+            # The input is a URL, so treat it as such
+            video_url = f"https://www.youtube.com/watch?v={video_id}"
+            results = YoutubeSearch(video_url, max_results=1).to_dict()
+            results[0]["url_suffix"] = songname 
             return results[0]
     except:
-        return {}
-    
+        return None
 
 # Returns an embed that is used for queue's and playing songs 
 def embed_music(ctx, song, song_state, embed_colour):
@@ -78,8 +82,8 @@ async def play(ctx, *, song):
     # Users song info
     song_information = song_infooooo(song)
     # If the song is not found or something goes wrong method will return
-    if (len(song_information) == 0):
-        await ctx.send("```Something went wrong or song was not found. Try again!```")
+    if (song_information is None):
+        await ctx.send("```Something went wrong or the song was not found. Try again!```")
         return
     song_url = song_information["url_suffix"]
     song_name = song_information["title"]
@@ -110,6 +114,7 @@ async def play(ctx, *, song):
             voice = await channel.connect()
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 song_info = ydl.extract_info(guilds[(ctx.guild.id)][0][0][0], download=False)
+                embed_music(guilds[(ctx.guild.id)][0][0][1], guilds[(ctx.guild.id)][0][0][0], "Now Playing", discord.Colour.blue())
             await ctx.send(embed = embed_music(guilds[(ctx.guild.id)][0][0][1], guilds[(ctx.guild.id)][0][0][0], "Now Playing", discord.Colour.blue()))
             # After song is finished playing song_seq is called 
             voice.play(discord.FFmpegPCMAudio(song_info["url"], **ffmpeg_options),after=lambda x=None: song_seq(ctx))
@@ -161,8 +166,8 @@ async def resume(ctx):
         await ctx.send("```Audio is already playing.```")
     else:
         await ctx.send("```No audio is currently playing.```")
-   
-    
+
+        
 # Stop the bot and resets the queue 
 @client.command()
 async def stop(ctx):
@@ -172,7 +177,6 @@ async def stop(ctx):
         voice.stop()
         await ctx.guild.voice_client.disconnect()
     else:
-        guilds[(ctx.guild.id)] = [[], []]
         voice.stop()
         await ctx.send("```Bot is not currently not in a voice channel.```")
 
@@ -196,8 +200,6 @@ async def queue(ctx):
     for i in range(len(guilds[((ctx.guild.id))][0])):
         song_url = guilds[(ctx.guild.id)][0][i][0]
         song_name = guilds[(ctx.guild.id)][1][i]
-        print(guilds[(ctx.guild.id)][0][0])
-        print(song_url)
         if i == 0:
             song += f"Now Playing :headphones:: \n"
             song += f"[{song_name}]({song_url}) \n\n"
@@ -206,6 +208,8 @@ async def queue(ctx):
             song += f"{i}: [{song_name}]({song_url}) \n"
         else:
             song += f"{i}: [{song_name}]({song_url}) \n"
+    if ((len(guilds[((ctx.guild.id))][0])) == 0):
+        song = "Queue is empty :slight_frown:"
     # Creates embed
     music_embed = discord.Embed(
     title = f"Song Queue ({len(guilds[((ctx.guild.id))][0])})",
@@ -215,6 +219,7 @@ async def queue(ctx):
     music_embed.set_footer(text = f"Requested by {ctx.author}", icon_url= ctx.author.avatar)
     await ctx.send(embed = music_embed)
     
+   
     
 # Disconnects the bot after a *time* amount of time if it pasued or not playing anything
 async def dc(ctx, time):
@@ -228,6 +233,31 @@ async def dc(ctx, time):
             await stop(ctx)
             return
         
+        
+# Checks when the bot has been disconnected and stop the audio and resets the music queue     
+@client.event
+async def on_voice_state_update(member, before, after):
+    voice = discord.utils.get(client.voice_clients, guild=member.guild)
+    if voice.is_playing() and before.channel and not after.channel and member == "Chupapimenyenyo#4871":
+        voice.stop()
+        guilds[(member.guild.id)] = [[], []]
+
+        
+
+@client.command()    
+@commands.is_owner()
+async def status(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if (voice is None):
+        await ctx.send("```Voice object is None type```")
+        return
+    if voice.is_playing():
+        await ctx.send("```Audio is playing```")
+        return
+    await ctx.send("```Audio is not playing```")
+    
+    
+                                                                                                                
 client.run("TOKEN")
 
 
