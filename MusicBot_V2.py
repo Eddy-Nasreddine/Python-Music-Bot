@@ -238,9 +238,9 @@ async def dc(ctx, time):
 @client.event
 async def on_voice_state_update(member, before, after):
     voice = discord.utils.get(client.voice_clients, guild=member.guild)
-    if voice.is_playing() and before.channel and not after.channel and member == "Chupapimenyenyo#4871":
-        voice.stop()
+    if after.channel is None and member==client.user:
         guilds[(member.guild.id)] = [[], []]
+        voice.stop()
 
         
 
